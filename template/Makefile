@@ -1,4 +1,3 @@
-WINEDEBUG=-all
 TARGET ?= project
 ML_FLAGS ?= /nologo /Sn /Sa /c /coff /Fo.\\build\\${TARGET}.o
 LINKER_FLAGS ?= /SUBSYSTEM:CONSOLE /OPT:NOREF /NOLOGO /OUT:.\\build\\${TARGET}.exe
@@ -6,9 +5,9 @@ MASM_PATH = ~/.wine/drive_c/masm32/bin
 MASM_TMP = C:\\users\\Public\\Desktop\\MASM_TEMP
 
 
-all: build
+all: build 
 	@echo "=====[RUNNING]====="
-	@wine ./build/${TARGET}.exe ${WINEDEBUG} 
+	@wine ./build/${TARGET}.exe 2> /dev/null
 	@echo 
 
 pre: ${TARGET}.asm 
@@ -24,14 +23,14 @@ build: ${TARGET}.asm pre assemble link
 assemble: ${TARGET}.asm pre
 	@echo "=====[ASSEMBLING]====="
 	@echo
-	@wine ${MASM_PATH}/ml.exe ${ML_FLAGS} ./build/${TARGET}.asm
+	@wine ${MASM_PATH}/ml.exe ${ML_FLAGS} ./build/${TARGET}.asm 2> /dev/null
 	@echo
 
 link: 
 	@echo "=====[LINKING]====="
 	@echo
 #ifneq (,$(wildcard ./build))
-	@wine  ${MASM_PATH}/link.exe ${LINKER_FLAGS} ./build/${TARGET}.o 
+	@wine  ${MASM_PATH}/link.exe ${LINKER_FLAGS} ./build/${TARGET}.o 2> /dev/null
 	@echo
 #else
 #@echo "ERROR: Directory ./build was not found"

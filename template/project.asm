@@ -1,6 +1,3 @@
-; Includes and such
-; These will be translated from unix paths to windows paths by the Makefile
-; Thanks Bill.....
 include ../Include/Irvine32.inc
 includelib ../Lib/Irvine32.lib
 includelib ../Lib/User32.lib
@@ -11,22 +8,15 @@ includelib ../Lib/Kernel32.lib
 .stack 4096
 ExitProcess proto,dwExitCode:dword
 
-.data ; static data
-    vara equ 42h; Term A -- equ is similar to a macro in c, however it can not be redefined
-    varaL sdword ? ; Term A | LOWER
-    varaH sdword ? ; Term A | UPPER
-    varb equ 23h ; Term B
-    varbL sdword ? ; Term B | LOWER
-    varbH sdword ? ; Term B | UPPER
-    varc sdword ? ; Term C
-    vard sdword ? ; Term D | Just a holder
+.data
+    var dword 0Ch
 
-.data? ; non-static data
+.data?
 
 .code
-main proc ;{ -- Helps me do vim shit
-
-
-;}
+main proc 
+    mov eax,var
+    inc eax
+    call DumpRegs
 main endp 
 end main
