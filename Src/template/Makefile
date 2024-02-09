@@ -13,8 +13,8 @@ all: build
 pre: ${TARGET}.asm 
 	@echo "Fixing Includes..."
 	@mkdir -p build 
-	@../Tools/fixinclude.sh pre
-	@../Tools/fixinc ./${TARGET}.asm ./build/ ${MASM_TMP}
+	@../../Tools/fixinclude.sh pre
+	@../../Tools/fixinc ./${TARGET}.asm ./build/ ${MASM_TMP}
 	@echo
 	
 
@@ -47,5 +47,5 @@ endif
 	@echo
 
 post:
-	@../Tools/fixinclude.sh post
+	@../../Tools/fixinclude.sh post
 
