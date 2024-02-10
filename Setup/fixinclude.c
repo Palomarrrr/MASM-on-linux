@@ -58,7 +58,7 @@ int main(int argc, char** argv){
     while(fgets(line_buf,bufsz,srcfp)){
         unsigned char fl = 0;
         for(size_t i = 0; i < 11 && (line_buf[i] != '\0' || line_buf[i] != '\n'); i++){
-            switch(line_buf[i]){
+            switch(line_buf[i]){ // I mean... it works
                 case 'i':
                 case 'n':
                 case 'c':
@@ -97,6 +97,7 @@ int main(int argc, char** argv){
         word_idx = 0;
         word_buf = calloc(11,sizeof(char));
     }
-
+    fclose(srcfp);
+    fclose(destfp);
     return 0;
 }

@@ -10,14 +10,14 @@ ExitProcess proto,dwExitCode:dword
 
 .data
     var dword 0Ch
+    welcomeStr byte 0Ah,"Hello, MASM",0Ah,0
 
 .data?
 
 .code
 main proc 
-    mov eax,var
-    inc eax
-    call DumpRegs
+    mov edx, offset welcomeStr
+    call WriteString
     invoke ExitProcess,0
 main endp 
 end main
