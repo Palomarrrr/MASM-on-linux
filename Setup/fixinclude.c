@@ -67,6 +67,14 @@ int main(int argc, char** argv){
                 case 'd':
                 case 'e':
                 case 'b':
+                case 'I':
+                case 'N':
+                case 'C':
+                case 'L':
+                case 'U':
+                case 'D':
+                case 'E':
+                case 'B':
                     word_buf[word_idx] = line_buf[i];
                     word_idx++;
                     break;

@@ -9,14 +9,13 @@ includelib ../../Lib/Kernel32.lib
 ExitProcess proto,dwExitCode:dword
 
 .data
-    var dword 0Ch
-    welcomeStr byte 0Ah,"Hello, MASM!",0Ah,0
+    test_str byte 0Ah,"Hello, MASM!",0Ah,0
 
 .data?
 
 .code
 main proc 
-    mov edx, offset welcomeStr
+    mov edx, offset test_str
     call WriteString
     invoke ExitProcess,0
 main endp 

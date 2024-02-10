@@ -31,4 +31,4 @@ echo Running masm32 installer...
 wine ./Setup/install.exe 2> /dev/null
 
 echo Setup done!
-echo To test the installation go to the `Src/template` directory and build the program using `make`
+echo To test the installation go to the \"Src/template\" directory and build the program using \"make\"
